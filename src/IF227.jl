@@ -1,5 +1,7 @@
 module IF227
 
-# package code goes here
+include("td1.jl")
+
+export resource_assign
 
 end # module
