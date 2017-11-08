@@ -1,3 +1,4 @@
+using JuMP, Cbc
 
 # Input : 
 # - product_lowerbounds est un vecteur qui contient le nombre min pour chaque produit
@@ -20,9 +21,33 @@ function resource_assign(product_lowerbounds, product_profits, resource_capaciti
   
   # solve it, and return its obj value
   # ...
- 
+  
   return 0
+end
+
+# Input:
+# demands
+# production_costs
+# production_times
+# holding_costs
+# setup_costs
+# setup_times
+# penalty_costs
+# capacities
+
+# Output
+# Le cout minimum qui permet de respecter les contraintes
+
+function lot_sizing(demands, production_costs, production_times, holding_costs, setup_costs, setup_times,
+    penalty_costs, capacities)    
+      
+    # Build the model     
+    # ...
     
+    # solve it, and return its obj value
+    # ...    
+        
+    return 0    
 end
 
 
