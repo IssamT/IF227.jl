@@ -32,10 +32,10 @@ end
     setup_costs = rand(30:40,I,T)
     setup_times = rand(10:15,I,T)
     penalty_costs = rand(100:200,I,T)
-    capacities = rand(300:500,T)
+    capacities = rand(300:500,T)    
 
     @test lot_sizing(demands, production_costs, production_times, holding_costs, setup_costs, setup_times,
-        penalty_costs, capacities) == 0
+        penalty_costs, capacities) == 570.0
         
     I=3
     T=7    
@@ -49,12 +49,12 @@ end
     capacities = rand(300:500,T)
 
     @test lot_sizing(demands, production_costs, production_times, holding_costs, setup_costs, setup_times,
-        penalty_costs, capacities) == 0
+        penalty_costs, capacities) == 1834.0
         
     capacities = capacities / 4
 
     @test lot_sizing(demands, production_costs, production_times, holding_costs, setup_costs, setup_times,
-        penalty_costs, capacities) == 0
+        penalty_costs, capacities) == 6696.0
     
 end
 
