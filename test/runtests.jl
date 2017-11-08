@@ -5,15 +5,15 @@ using Base.Test
 
     product_lowerbounds = [100, 100]
     product_profits = [12, 20] 
-    resource_capacities = [490, 400]
-    resource_consumptions = [12*60 30*60; 24*60 24*60]
+    resource_capacities = [490*60, 400*60]
+    resource_consumptions = [12 30; 24 24]
 
     @test resource_assign(product_lowerbounds, product_profits, resource_capacities, resource_consumptions) == 0
     
     product_lowerbounds = [100, 100, 120, 180]
     product_profits = [12, 20, 16, 23] 
-    resource_capacities = [490, 400, 320]
-    resource_consumptions = [12*60 30*60 24*60 ; 24*60 24*60 25*60; 12*60 32*60 21*60 ; 22*60 27*60 24*60]
+    resource_capacities = [490*60, 400*60, 320*60]
+    resource_consumptions = [12 30 24 ; 24 24 25; 12 32 21 ; 22 27 24]
 
     @test resource_assign(product_lowerbounds, product_profits, resource_capacities, resource_consumptions) == 0
     
