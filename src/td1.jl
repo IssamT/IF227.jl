@@ -11,10 +11,6 @@ function resource_assign(product_lowerbounds, product_profits, resource_capaciti
  
   const I = 1:length(product_profits)
   const R = 1:length(resource_capacities)
-  const LB = product_lowerbounds
-  const P = product_profits
-  const CAP = resource_capacities
-  const CONS = resource_consumptions
   
   # Build the model     
   # ...
@@ -39,7 +35,10 @@ end
 # Le cout minimum qui permet de respecter les contraintes
 
 function lot_sizing(demands, production_costs, production_times, holding_costs, setup_costs, setup_times,
-    penalty_costs, capacities)    
+    penalty_costs, capacities)  
+    
+    const I = 1:size(demands,1)
+    const T = 1:size(demands,2)  
       
     # Build the model     
     # ...

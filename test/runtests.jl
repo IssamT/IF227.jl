@@ -25,28 +25,33 @@ end
         
     I=2
     T=3    
-    demands = rand(1:5, I)
+    demands = rand(1:5, I,T)
     production_costs = rand(10:20,I,T)
     production_times = rand(30:60,I,T)
     holding_costs = rand(1:60,I,T)
     setup_costs = rand(30:40,I,T)
     setup_times = rand(10:15,I,T)
     penalty_costs = rand(100:200,I,T)
-    capacities = rand(1000:1500,T)
-    
+    capacities = rand(300:500,T)
+
     @test lot_sizing(demands, production_costs, production_times, holding_costs, setup_costs, setup_times,
         penalty_costs, capacities) == 0
         
-    I=4
-    T=10    
-    demands = rand(1:5, I)
+    I=3
+    T=7    
+    demands = rand(1:5, I, T)
     production_costs = rand(10:20,I,T)
     production_times = rand(30:60,I,T)
     holding_costs = rand(1:60,I,T)
     setup_costs = rand(30:40,I,T)
     setup_times = rand(10:15,I,T)
     penalty_costs = rand(100:200,I,T)
-    capacities = rand(1000:1500,T)
+    capacities = rand(300:500,T)
+
+    @test lot_sizing(demands, production_costs, production_times, holding_costs, setup_costs, setup_times,
+        penalty_costs, capacities) == 0
+        
+    capacities = capacities / 4
 
     @test lot_sizing(demands, production_costs, production_times, holding_costs, setup_costs, setup_times,
         penalty_costs, capacities) == 0
