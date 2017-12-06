@@ -11,10 +11,6 @@ function resource_assign(product_lowerbounds, product_profits, resource_capaciti
 
   const I = 1:length(product_profits)
   const R = 1:length(resource_capacities)
-  const LB = product_lowerbounds
-  const P = product_profits
-  const CAP = resource_capacities
-  const CONS = resource_consumptions
   
   # Build the model     
   # ...
@@ -61,17 +57,16 @@ function lot_sizing(demands, production_costs, production_times, holding_costs, 
     @objective(m, Min, sum(production_costs[i,t] * x[i,t] + holding_costs[i,t] * s[i,t] + penalty_costs[i,t] * z[i,t] +
         setup_costs[i,t] * y[i,t] for i in I, t in T))
     
-    solve(m)
-    
-    @show getvalue(x)
-    @show getvalue(s)
-    @show getvalue(z)
-    @show getobjectivevalue(m)
-    
     # solve it, and return its obj value
-    # ...    
+    # ...   
         
-    return 0    
+    solve(m)    
+    # @show getvalue(x)
+    # @show getvalue(s)
+    # @show getvalue(z)
+    # @show getobjectivevalue(m)     
+        
+    return getobjectivevalue(m)
 end
 
 
